@@ -1,0 +1,729 @@
+:root {
+  --color1: #08605f;
+  --color2: #63474d;
+  --color3: #adafcd;
+  --color4: #e5f9e0;
+  --color5: #667761;
+  --color6: #94b08a;
+  --color7: rgba(80, 227, 194, 0.2);
+  --modalHeight: 50rem;
+  --modalWidth: 100rem;
+  --modalHeightMobile: max(73vh, 45rem);
+  --modalWidthMoblile: max(85vw, 28rem);
+  --modalHeightTab: max(73vh, 50rem);
+  --modalWidthTab: max(85vw, 30rem);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html * {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+}
+
+.fluid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+h1 {
+  color: var(--color1);
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+h5,
+h6 {
+  color: var(--color1);
+}
+
+.cloud {
+  height: 20rem;
+  width: 20rem;
+}
+
+.auth {
+  border: 0.1rem solid var(--color1);
+  border-radius: 3rem;
+  margin: auto;
+  height: auto;
+  padding: 10rem 0;
+  width: 50rem;
+}
+
+.login-heading {
+  color: var(--color1);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.input-box {
+  width: 30rem;
+  height: 3.5rem;
+}
+
+.input-label {
+  background-color: var(--color2);
+  color: var(--color4);
+}
+
+.input-detail:focus {
+  box-shadow: 0.2rem 0.2rem 0.2rem var(--color6),
+    0 -0.2rem 0.2rem var(--color6);
+  border-color: var(--color6);
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-reveal {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  position: absolute; 
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.persist-container {
+  width: 33rem;
+  margin-bottom: 1.2rem;
+}
+
+.persistLogin {
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.persistLogin label {
+  color: var(--color1);
+  margin: 0;
+}
+
+.persistCheck {
+  accent-color: var(--color1);
+  cursor: pointer;
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: 0 1rem 0.5rem 0.5rem;
+}
+
+.persistCheck:checked {
+  background-color: var(--color1);
+}
+
+.forget-password-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.forget-password-info {
+  padding: 0.25rem;
+  position: relative;
+}
+
+.forget-password-info > p {
+  background-color: var(--color4);
+  color: var(--color1);
+  font-size: xx-small;
+  padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+  position: absolute;
+  top: -2rem;
+  left: 0.7rem;
+  width: 15rem;
+}
+
+.forget-password-info > p::before {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  top: 1.45rem;
+  border-bottom: solid 1rem transparent;
+  border-left: solid 1rem var(--color4);
+  left: 0;
+}
+
+.forget-password {
+  color: var(--color6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+  text-decoration: none;
+}
+
+.fontz {
+  font-size: 1.5rem;
+}
+
+.button-text {
+  font-weight: bold;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
+.suggestion {
+  margin-top: 2rem;
+}
+
+.suggestion input {
+  background: none;
+  border: none;
+  color: var(--color1);
+  text-decoration: underline;
+}
+
+.nav-bar {
+  text-align: center;
+}
+
+.header {
+  border-bottom: 0.2rem solid var(--color7);
+}
+
+.carbon-quest:hover {
+  cursor: pointer;
+}
+
+.logout-Btn {
+  background-color: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--color1);
+  margin-right: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.logout-Btn:hover {
+  background-color: transparent;
+  border: 0.01rem solid var(--color1);
+  color: var(--color2);
+}
+
+.logout,
+.logout-icon {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+.quest-container {
+  position: relative;
+}
+
+.modal-container {
+  position: absolute;
+  border: none;
+  background-image: url("assets/party-popper-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 1rem 1rem 2rem var(--color6),
+    -1rem -1rem 2rem var(--color6);  
+  height: var(--modalHeight);
+  width: var(--modalWidth);
+  margin: auto;
+  padding: 1rem;
+}
+
+.modal-container * {
+  border-radius: 0.5rem;
+}
+
+.modal-element {
+  background-color: var(--color1);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  width: 75%;
+  opacity: 0.9;
+  margin-bottom: calc(var(--modalHeight) * 0.125);
+  margin-top: calc(var(--modalHeight) * 0.125);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-element > * {
+  color: white;
+}
+
+.modal-btn {
+  border: none;
+  background-color: var(--color5);
+  color: white;
+  font-size: large;
+  padding:  0.5rem 2rem;
+}
+
+.modal-btn:hover {
+    background-color: white;
+    border: 0.01rem solid var(--color1);
+    color: var(--color1);
+}
+
+.greetings {
+  color: var(--color1);
+  font-size: 3rem;
+  padding: 2rem 0;
+}
+
+.quest-nav {
+  margin: 2rem auto;
+  gap: 5rem;
+}
+
+.no-quest-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 5rem;
+}
+
+.quest-hint {
+  color: var(--color1);
+  margin: 3rem 5rem 0;
+}
+
+.tile-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 3.5rem;
+  margin: 5rem auto;
+  padding: 0 2rem;
+}
+
+.tile {
+  background-color: whitesmoke;
+  box-shadow: 0.05rem 0.1rem 0.5rem 0.1rem var(--color3);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 2rem 3rem 3rem;
+  text-align: center;
+  height: auto;
+  width: 30rem;
+}
+
+.crown {
+  font-size: 5rem;
+  font-weight: bold;
+  position: absolute;
+  top: -3rem;
+  right: -3rem;
+  transform: rotate(45deg);
+}
+
+.tile-heading {
+  color: var(--color1);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.icon {
+    background: rgb(255, 255, 255);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 1) 20%,
+      rgba(245, 245, 245, 1) 35%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(245, 245, 245, 1) 65%,
+      rgba(255, 255, 255, 1) 80%
+    );
+    border-radius: 50%;
+  font-size: 10rem;
+  font-weight: bold;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2.5rem;
+}
+
+hr {
+  color: var(--color1);
+  margin: 1rem 0;
+}
+
+.progress-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+
+}
+
+.progressbtn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.progress-btn {
+  background-color: white;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  margin: 1rem;
+  vertical-align: middle;
+  border: 0.1rem solid var(--color5);
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.progress-btn:checked {
+  background-color: var(--color6);
+  border: 0.1rem solid var(--color6);
+}
+
+.btn-disabled {
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem var(--color5);
+  opacity: 0.55;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hourglass-icon, .timer, .timer-out {
+  font-size: xx-small;
+}
+
+.timer {
+  color: var(--color1);
+  width: 5rem;
+}
+
+.timer-out {
+  color: var(--color1);
+}
+
+.quest-btn-class:hover {
+  background-color: var(--color6);
+  border-color: var(--color6);
+}
+
+.remove-quest {
+  font-size: x-small;
+  font-weight: bold;
+  height: 3rem;
+  padding: 0;
+}
+
+.remove-quest:hover:hover {
+  background-color: lightcoral;
+  border-color: lightcoral;
+}
+
+.circular-progress-frame {
+  height: 100vh;
+}
+
+.footer {
+  background-color: var(--color2);
+  border-radius: 0.5rem;
+  color: white;
+  height: 12rem;
+  margin: 2rem 2rem;
+}
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.error-img {
+  height: 30rem;
+  width: 30rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .cloud {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  .auth {
+    border: none;
+    padding: 2rem 0;
+    width: 30rem;
+  }
+
+  .credential-mobile {
+    justify-content: flex-start;
+  }
+
+  .input-box {
+    width: 25rem;
+  }
+
+  .input-detail:focus {
+    box-shadow: 0.1rem 0.1rem 0.1rem var(--color6),
+      0 -0.1rem 0.1rem var(--color6);
+  }
+
+  .fontz {
+    font-size: 1rem;
+  }
+
+  .button-text {
+    margin: auto 5rem;
+  }
+
+  .suggestion {
+    margin-top: 2rem;
+  }
+
+  .persistLogin {
+    font-size: 1.25rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .persistCheck {
+    height: 1.2rem;
+    width: 1.2rem;
+    margin: 0 1rem 0.5rem 0.5rem;
+  }
+
+  .persist-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .forget-password {
+    font-size: 1.25rem;
+  }
+
+  .carbon-hidden-mobile {
+    display: none;
+  }
+
+  .logout-Btn {
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .logout,
+  .logout-icon {
+    font-size: 1rem;
+  }
+
+  .quest-nav {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .quest-body-mobile {
+    padding: 0 1rem;
+  }
+
+  .quest-hint {
+    margin: 3rem 2rem 0;
+  }
+
+  .tile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin: 2rem auto;
+  }
+
+  .tile {
+    box-shadow: 0.05rem 0.1rem 0.5rem 0.1rem var(--color3);
+    padding: 2rem 3rem 3rem;
+    height: auto;
+    width: max(85vw, 28rem);
+  }
+
+  .crown {
+    font-size: 3.5rem;
+    top: -1.5rem;
+    right: -1.5rem;
+  }
+
+  .tile-heading {
+    font-size: 2rem;
+  }
+
+  .icon {
+    font-size: 10rem;
+  }
+
+  hr {
+    margin-top: 1rem;
+  }
+
+  .progress-btn {
+    border: 0.1rem solid var(--color2);
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 1rem;
+  }
+
+  .remove-quest {
+    height: 2rem;
+  }
+
+  .footer {
+    border-radius: 0;
+    padding: 0 2rem;
+    text-align: center;
+    height: 20rem;
+    margin: 0;
+  }
+  
+  .error-img {
+    height: 20rem;
+    width: 20rem;
+  } 
+
+  .modal-container {
+    background-image: url("assets/party-popper-mobile.png");
+    box-shadow: 0.5rem 0.5rem 1rem var(--color6),
+      -0.5rem -0.5rem 1rem var(--color6);  
+    height: var(--modalHeightMobile);
+    width: var(--modalWidthMoblile);
+  }
+    
+  .modal-element {
+    gap: 2rem;
+    height: 70%;
+    width: 85%;
+    margin-bottom: calc(var(--modalHeightMobile) * 0.15);
+    margin-top: calc(var(--modalHeightMobile) * 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem
+  }  
+  
+  .modal-element > * {
+    text-align: center;
+  }
+
+  .modal-element > h1 {
+    font-size: 2rem;
+  }
+
+  .modal-element > h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-btn {
+    font-size: 1rem;
+    padding:  0.5rem 1.5rem;
+  }
+  
+  .greetings {
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  
+
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .fluid-container {
+    gap: 10rem;
+  }
+
+  .tile-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+
+  }
+  
+  .modal-container {
+    background-image: url("assets/party-popper-mobile.png");
+    box-shadow: 0.75rem 0.75rem 1.5rem var(--color6),
+      -0.75rem -0.75rem 1.5rem var(--color6);  
+    height: var(--modalHeightTab);
+    width: var(--modalWidthTab);
+  }
+    
+  .modal-element {
+    gap: 2rem;
+    height: 60%;
+    width: 60%;
+    margin-bottom: calc(var(--modalHeightTab) * 0.2);
+    margin-top: calc(var(--modalHeightTab) * 0.2);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem
+  }  
+  
+  .modal-element > * {
+    text-align: center;
+  }
+
+  .modal-element > h1 {
+    font-size: 2.5rem;
+  }
+
+  .modal-element > h2 {
+    font-size: 2rem;
+  }
+
+  .footer {
+    border-radius: 0;
+    height: 30rem;
+    margin: 0;
+  }
+
+  .error-img {
+    height: 25rem;
+    width: 25rem;
+  }
+}
+
+@media (min-width:900px) and (max-width: 1280px) {
+  .tile-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+  }
+}
+
+
+    /* height: 75%;
+    width: 85%;
+    margin-bottom: calc(var(--modalHeightMobile) * 0.075);
+    margin-top: calc(var(--modalHeightMobile) * 0.075);
+    margin-left: auto;
+    margin-right: auto; */
