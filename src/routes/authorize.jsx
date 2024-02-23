@@ -8,7 +8,7 @@ import useAuth from "../hooks/useAuth";
 import { useErrorBoundary } from "react-error-boundary";
 
 function Authorize() {
-  const [feedback, setFeedback] = useState(false)
+  const [feedback, setFeedback] = useState(false);
   const { showBoundary } = useErrorBoundary();
   const navigate = useNavigate();
   const location = useLocation();
@@ -130,9 +130,11 @@ function Authorize() {
       switch (action.actionType) {
         case "register":
           if (response?.status === 201) {
-            setCredentials({
-              username: "",
-              password: "",
+            setCredentials((prev) => {
+              return {
+                ...prev,
+                password: "",
+              };
             });
             setAction({
               actionType: "login",
@@ -161,7 +163,7 @@ function Authorize() {
     } catch (err) {
       setFeedback(false);
       if (!err.response) {
-        showBoundary({"message":"No server response"});
+        showBoundary({ message: "No server response" });
       } else if (err.name === "Network Error") {
         showBoundary(err);
       } else if (err?.response.status === 406) {
@@ -199,27 +201,26 @@ function Authorize() {
 
   return (
     <>
-
-    <div className="fluid-container">
-      <Heading />
-      <form className="auth d-flex flex-column" onSubmit={handleFormSubmit}>
-        <h2 className="login-heading">Login to Carbon Quest App.</h2>
-        <Credentials
-          action={action}
-          credentials={credentials}
-          handleAction={handleAction}
-          handleChange={handleChange}
-          userNotUnique={userNotUnique}
-          userAuthentication={userAuthentication}
-          regSuccess={regSuccess}
-          authExpires={authExpires}
-          togglePersist={togglePersist}
-          persist={persist}
-          feedback={feedback}
-        />
-      </form>
-      <Footer />
-    </div>
+      <div className="fluid-container">
+        <Heading />
+        <form className="auth d-flex flex-column" onSubmit={handleFormSubmit}>
+          <h2 className="login-heading">Login to Carbon Quest App.</h2>
+          <Credentials
+            action={action}
+            credentials={credentials}
+            handleAction={handleAction}
+            handleChange={handleChange}
+            userNotUnique={userNotUnique}
+            userAuthentication={userAuthentication}
+            regSuccess={regSuccess}
+            authExpires={authExpires}
+            togglePersist={togglePersist}
+            persist={persist}
+            feedback={feedback}
+          />
+        </form>
+        <Footer />
+      </div>
     </>
   );
 }

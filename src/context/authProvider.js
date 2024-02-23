@@ -13,15 +13,6 @@ export const AuthProvider = ({ children }) => {
     all: false,
     user: false,
   });
-  const iconStyle = {
-    "--fa-primary-color": "#08605F",
-    "--fa-secondary-color": "#94B08A"
-  };
-
-  const crownStyle = {
-    "--fa-primary-color": "#E09F3E",
-    "--fa-secondary-color": "#63474D",
-  };
 
   return (
     <AuthContext.Provider
@@ -36,8 +27,6 @@ export const AuthProvider = ({ children }) => {
         setPersist,
         questPath,
         setQuestPath,
-        iconStyle,
-        crownStyle 
       }}
     >
       {children}

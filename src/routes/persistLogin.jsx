@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useRefreshToken from "../hooks/useRefreshToken";
-import {MoonSpinner } from "../components/ui-loaders";
-
+import { MoonSpinner } from "../components/ui-loaders";
 
 const PersistLogin = () => {
   const [isLoading, setIsLoading] = useState(true);

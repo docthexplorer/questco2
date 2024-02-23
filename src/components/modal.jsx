@@ -3,7 +3,7 @@ import { Btn } from "./input-field";
 import useAuth from "../hooks/useAuth";
 
 export default function PopUpModal() {
-  const { questAccord, setQuestAccord, crownStyle } = useAuth();
+  const { questAccord, setQuestAccord } = useAuth();
 
   const handleClose = () => {
     setQuestAccord(false);
@@ -13,8 +13,7 @@ export default function PopUpModal() {
     <Modal className="modal-container" onClose={handleClose} open={questAccord}>
       <div className="modal-element">
         <h1>
-          You earn a crown!{" "}
-          <i className="fa-duotone fa-crown" style={crownStyle}></i>
+          You earn a crown! <i className="fa-solid fa-crown crown-modal"></i>
         </h1>
         <h2>Keep up the good work towards a sustainable climate.</h2>
         <Btn class="modal-btn" text="Continue" onclick={handleClose} />

@@ -6,6 +6,7 @@
   --color5: #667761;
   --color6: #94b08a;
   --color7: rgba(80, 227, 194, 0.2);
+  --color8: #e09f3e;
   --modalHeight: 50rem;
   --modalWidth: 100rem;
   --modalHeightMobile: max(73vh, 45rem);
@@ -74,23 +75,26 @@ h6 {
 .input-label {
   background-color: var(--color2);
   color: var(--color4);
+  font-size: 1.8rem;
+  width: 40%;
 }
 
 .input-detail:focus {
-  box-shadow: 0.2rem 0.2rem 0.2rem var(--color6),
-    0 -0.2rem 0.2rem var(--color6);
+  box-shadow: 0.2rem 0.2rem 0.2rem var(--color6), 0 -0.2rem 0.2rem var(--color6);
   border-color: var(--color6);
 }
 
-.password-container {
+.input-container {
   position: relative;
+  width: 60%;
 }
 
 .password-reveal {
   background-color: transparent;
   border: none;
+  color: var(--color5);
   font-size: 1.5rem;
-  position: absolute; 
+  position: absolute;
   top: 0.75rem;
   right: 0.75rem;
 }
@@ -234,8 +238,7 @@ h6 {
   background-image: url("assets/party-popper-desktop.png");
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: 1rem 1rem 2rem var(--color6),
-    -1rem -1rem 2rem var(--color6);  
+  box-shadow: 1rem 1rem 2rem var(--color6), -1rem -1rem 2rem var(--color6);
   height: var(--modalHeight);
   width: var(--modalWidth);
   margin: auto;
@@ -271,13 +274,13 @@ h6 {
   background-color: var(--color5);
   color: white;
   font-size: large;
-  padding:  0.5rem 2rem;
+  padding: 0.5rem 2rem;
 }
 
 .modal-btn:hover {
-    background-color: white;
-    border: 0.01rem solid var(--color1);
-    color: var(--color1);
+  background-color: white;
+  border: 0.01rem solid var(--color1);
+  color: var(--color1);
 }
 
 .greetings {
@@ -326,6 +329,11 @@ h6 {
   width: 30rem;
 }
 
+.crown-modal,
+.crown {
+  color: var(--color8);
+}
+
 .crown {
   font-size: 5rem;
   font-weight: bold;
@@ -342,16 +350,17 @@ h6 {
 }
 
 .icon {
-    background: rgb(255, 255, 255);
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 1) 20%,
-      rgba(245, 245, 245, 1) 35%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(245, 245, 245, 1) 65%,
-      rgba(255, 255, 255, 1) 80%
-    );
-    border-radius: 50%;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(245, 245, 245, 1) 35%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(245, 245, 245, 1) 65%,
+    rgba(255, 255, 255, 1) 80%
+  );
+  border-radius: 50%;
+  color: var(--color1);
   font-size: 10rem;
   font-weight: bold;
   background-repeat: no-repeat;
@@ -369,7 +378,6 @@ hr {
   justify-content: center;
   align-items: center;
   height: 3rem;
-
 }
 
 .progressbtn-group {
@@ -408,17 +416,15 @@ hr {
   align-items: center;
 }
 
-.hourglass-icon, .timer, .timer-out {
+.hourglass-icon,
+.timer,
+.timer-out {
+  color: var(--color1);
   font-size: xx-small;
 }
 
 .timer {
-  color: var(--color1);
   width: 5rem;
-}
-
-.timer-out {
-  color: var(--color1);
 }
 
 .quest-btn-class:hover {
@@ -487,7 +493,7 @@ hr {
   }
 
   .input-box {
-    width: 25rem;
+    width: max(85vw, 28rem);
   }
 
   .input-detail:focus {
@@ -501,6 +507,7 @@ hr {
 
   .button-text {
     margin: auto 5rem;
+    text-decoration: none;
   }
 
   .suggestion {
@@ -542,6 +549,10 @@ hr {
   .logout,
   .logout-icon {
     font-size: 1rem;
+  }
+
+  .quest-link {
+    text-decoration: none;
   }
 
   .quest-nav {
@@ -609,20 +620,20 @@ hr {
     height: 20rem;
     margin: 0;
   }
-  
+
   .error-img {
     height: 20rem;
     width: 20rem;
-  } 
+  }
 
   .modal-container {
     background-image: url("assets/party-popper-mobile.png");
     box-shadow: 0.5rem 0.5rem 1rem var(--color6),
-      -0.5rem -0.5rem 1rem var(--color6);  
+      -0.5rem -0.5rem 1rem var(--color6);
     height: var(--modalHeightMobile);
     width: var(--modalWidthMoblile);
   }
-    
+
   .modal-element {
     gap: 2rem;
     height: 70%;
@@ -631,9 +642,9 @@ hr {
     margin-top: calc(var(--modalHeightMobile) * 0.15);
     margin-left: auto;
     margin-right: auto;
-    padding: 2rem
-  }  
-  
+    padding: 2rem;
+  }
+
   .modal-element > * {
     text-align: center;
   }
@@ -648,15 +659,13 @@ hr {
 
   .modal-btn {
     font-size: 1rem;
-    padding:  0.5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
   }
-  
+
   .greetings {
     font-size: 1.5rem;
     padding: 1.5rem 0;
   }
-  
-
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
@@ -667,17 +676,16 @@ hr {
   .tile-container {
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
-
   }
-  
+
   .modal-container {
     background-image: url("assets/party-popper-mobile.png");
     box-shadow: 0.75rem 0.75rem 1.5rem var(--color6),
-      -0.75rem -0.75rem 1.5rem var(--color6);  
+      -0.75rem -0.75rem 1.5rem var(--color6);
     height: var(--modalHeightTab);
     width: var(--modalWidthTab);
   }
-    
+
   .modal-element {
     gap: 2rem;
     height: 60%;
@@ -686,9 +694,9 @@ hr {
     margin-top: calc(var(--modalHeightTab) * 0.2);
     margin-left: auto;
     margin-right: auto;
-    padding: 2rem
-  }  
-  
+    padding: 2rem;
+  }
+
   .modal-element > * {
     text-align: center;
   }
@@ -713,17 +721,9 @@ hr {
   }
 }
 
-@media (min-width:900px) and (max-width: 1280px) {
+@media (min-width: 900px) and (max-width: 1280px) {
   .tile-container {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 5rem;
   }
 }
-
-
-    /* height: 75%;
-    width: 85%;
-    margin-bottom: calc(var(--modalHeightMobile) * 0.075);
-    margin-top: calc(var(--modalHeightMobile) * 0.075);
-    margin-left: auto;
-    margin-right: auto; */

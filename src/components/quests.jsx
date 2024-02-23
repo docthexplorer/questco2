@@ -25,7 +25,7 @@ export default function Quests() {
       <div className="d-flex flex-column align-items-center">
         <Welcome />
         <div className="d-flex justify-content-center quest-nav mt-5">
-          <Link to="user-quests">
+          <Link to="user-quests" className="quest-link">
             <Submit
               text="my challenges"
               main="#08605F"
@@ -34,7 +34,7 @@ export default function Quests() {
               user={user}
             />
           </Link>
-          <Link to="all-quests">
+          <Link to="all-quests" className="quest-link">
             <Submit
               text="all challenges"
               main="#08605F"
@@ -44,7 +44,6 @@ export default function Quests() {
             />
           </Link>
         </div>
-
 
         <Outlet />
       </div>

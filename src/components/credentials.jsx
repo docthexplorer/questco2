@@ -3,7 +3,6 @@ import Input, { Submit } from "./input-field";
 import { Alert, AlertTitle } from "@mui/material";
 import CheckBox from "./check";
 import { BeatLoad } from "./ui-loaders";
-import useAuth from "../hooks/useAuth";
 
 export default function Credentials({
   action,
@@ -18,7 +17,6 @@ export default function Credentials({
   persist,
   feedback,
 }) {
-  const { iconStyle } = useAuth();
   const inputRef = useRef();
   const [forgetPasswordInfo, setForgetPasswordInfo] = useState(false);
 
@@ -75,7 +73,8 @@ export default function Credentials({
 
       <Input
         type="text"
-        placeholder="Enter a nickname"
+        text="Username"
+        placeholder="Name or nickname"
         label="usernameInput"
         action={handleChange}
         id="usernameInput"
@@ -85,6 +84,7 @@ export default function Credentials({
       />
       <Input
         type="password"
+        text="Password"
         label="passwordInput"
         action={handleChange}
         id="passwordInput"
@@ -106,7 +106,11 @@ export default function Credentials({
           <a className="forget-password" href="#">
             <span className="forget-password-info">
               {forgetPasswordInfo && <p>This feature is not yet available.</p>}
-              <i class="fa-duotone fa-circle-info" style={iconStyle} onMouseOver={hover} onMouseOut={noHover} ></i>
+              <i
+                className="fa-solid fa-circle-info"
+                onMouseOver={hover}
+                onMouseOut={noHover}
+              ></i>
             </span>
             Forgot password?
           </a>

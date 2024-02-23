@@ -59,7 +59,8 @@ export default function UserQuests() {
       await axiosPrivate
         .get(`/delete-quest/${i}`)
         .then((response) => {
-          if (response.status === 200) return navigate("..", { relative: "path" });;
+          if (response.status === 200)
+            return navigate("..", { relative: "path" });
         })
         .catch((err) => console.log(err));
     };
@@ -96,10 +97,9 @@ export default function UserQuests() {
               <strong>#Hint</strong>
             </h2>
             <h3>
-              Perform a daily task and click on the
-              corresponding circular check button upon task completion to
-              register your progress. Carry out quest for five consecutive days
-              to earn the ultimate quest crown.
+              Perform a daily task and click on the corresponding circular check
+              button upon task completion to register your progress. Carry out
+              quest for five consecutive days to earn the ultimate quest crown.
             </h3>
           </div>
           <div className="tile-container">

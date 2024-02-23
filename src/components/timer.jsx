@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
-import useAuth from "../hooks/useAuth";
-
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 
 export default function Timer({ duration, displayOption }) {
-  const {iconStyle} = useAuth();
   const [timerOut, setTimerOut] = useState(false);
   const [delayTime, setDelayTime] = useState(duration);
 
@@ -18,7 +15,7 @@ export default function Timer({ duration, displayOption }) {
     }
   }, [delayTime]);
 
-  const getTimeFormat = (milliseconds) => {
+  const getTimeFormat = useCallback((milliseconds) => {
     let totalSeconds = parseInt(Math.floor(milliseconds / 1000));
     let totalMinutes = parseInt(Math.floor(totalSeconds / 60));
     let totalHours = parseInt(Math.floor(totalMinutes / 60));
@@ -32,7 +29,12 @@ export default function Timer({ duration, displayOption }) {
     if (hours < 10) hours = `0${hours}`;
 
     return `${hours}: ${minutes}: ${seconds}`;
-  };
+  }, []);
+
+  const timeFormat = useMemo(
+    () => getTimeFormat(delayTime),
+    [delayTime, getTimeFormat]
+  );
 
   return (
     <>
@@ -40,10 +42,10 @@ export default function Timer({ duration, displayOption }) {
         <p className="timer-out">active</p>
       ) : (
         <div className="timer-container">
-          <i className="fa-duotone fa-hourglass-half hourglass-icon" style={iconStyle}></i>
+          <i className="fa-solid fa-hourglass-half hourglass-icon"></i>
           <p className="timer" style={{ display: displayOption }}>
-          {getTimeFormat(delayTime)}
-        </p>
+            {timeFormat}
+          </p>
         </div>
       )}
     </>

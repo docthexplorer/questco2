@@ -4,20 +4,21 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function Input(props) {
   const [revealPassword, setRevealPassword] = useState(false);
-  // const [inputType, setInputType] = useState(props.type);
 
   const togglePassword = (e) => {
     e.preventDefault();
     setRevealPassword((prev) => !prev);
   };
 
-
   return (
-    <div className="d-flex input-group mb-5 input-box">
-      <span className="input-group-text input-label fontz" id={props.id}>
-        {props.name}
+    <div className="d-flex justify-content-center input-group mb-5 input-box">
+      <span
+        className="d-flex justify-content-center input-group-text input-label"
+        id={props.id}
+      >
+        {props.text}
       </span>
-      <div className="d-flex password-container">
+      <div className="d-flex input-container">
         <input
           type={revealPassword ? "text" : props.type}
           placeholder={props.placeholder}
@@ -31,15 +32,14 @@ function Input(props) {
           required
         />
         {props.name === "password" && (
-          <label htmlFor={props.name}
+          <label
+            htmlFor={props.name}
             onClick={togglePassword}
             className="password-reveal"
           >
             <i
               className={
-                !revealPassword
-                  ? "fa-duotone fa-eye"
-                  : "fa-duotone fa-eye-slash"
+                !revealPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
               }
             ></i>
           </label>

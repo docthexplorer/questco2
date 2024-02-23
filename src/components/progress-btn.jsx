@@ -1,12 +1,18 @@
-import React, { useState, useRef, useMemo, useLayoutEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useMemo,
+  useLayoutEffect,
+  useCallback,
+} from "react";
 import { axiosPrivate } from "../api/axios";
 import useQuestState from "../hooks/useQuestState";
 import Timer from "./timer";
 import useAuth from "../hooks/useAuth";
 
 export default function ProgressBtns(props) {
-  const {setQuestAccord} = useAuth();
-  const {questState} = useQuestState();
+  const { setQuestAccord } = useAuth();
+  const { questState } = useQuestState();
   const effectRun = useRef(false);
   const [id, setId] = useState(0);
   const [delayTime, setDelayTime] = useState([]);
@@ -16,6 +22,15 @@ export default function ProgressBtns(props) {
   let currentTime = useMemo(() => {
     return parseInt(new Date().getTime());
   }, []);
+
+  const progressBtnIteration = useCallback(
+    (x, i) => {
+      setTimeout(() => {
+        return (progressBtns[i + 1].disabled = !progressBtns[i].checked);
+      }, parseInt(x - currentTime));
+    },
+    [progressBtns, currentTime]
+  );
 
   useLayoutEffect(() => {
     let isMounted = true;
@@ -31,13 +46,12 @@ export default function ProgressBtns(props) {
             let totalDelayTime = parseInt(obj.delayTime);
             obj.index === questIndex &&
               obj.progress.forEach((e) => {
-                isMounted && setDelayTime([parseInt(totalDelayTime - currentTime)]);
+                isMounted &&
+                  setDelayTime([parseInt(totalDelayTime - currentTime)]);
                 const idx = parseInt(e.id);
                 progressBtns[idx].checked = true;
                 progressBtns[idx].disabled = true;
-                setTimeout(()=> {
-                  progressBtns[idx + 1].disabled = !progressBtns[idx].checked;
-                  },parseInt(totalDelayTime - currentTime))
+                progressBtnIteration(totalDelayTime, idx);
                 setId(idx + 1);
               });
           });
@@ -58,6 +72,7 @@ export default function ProgressBtns(props) {
     questState.progressiveQuest,
     questIndex,
     setDelayTime,
+    progressBtnIteration,
   ]);
 
   const removeDisable = async (event) => {
@@ -66,9 +81,9 @@ export default function ProgressBtns(props) {
 
     let countDownTime = parseInt(currentTime + 86400000);
     if (event.target.id === `${id}` && id < progressBtns.length - 1) {
-      setTimeout(()=> {
-      progressBtns[id + 1].disabled = !event.target.checked;
-      },86400000)
+      setTimeout(() => {
+        progressBtns[id + 1].disabled = !event.target.checked;
+      }, 86400000);
       setId(id + 1);
     }
     try {
@@ -115,7 +130,7 @@ export default function ProgressBtns(props) {
         {id === 1 &&
           (delayTime.length > 0 ? (
             <Timer
-              duration= {delayTime[0]}
+              duration={delayTime[0]}
               displayOption={props.progressBtnvisible}
             />
           ) : (
