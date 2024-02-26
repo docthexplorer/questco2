@@ -15,7 +15,7 @@ export default function ProgressBtns(props) {
   const { questState } = useQuestState();
   const effectRun = useRef(false);
   const [id, setId] = useState(0);
-  const [delayTime, setDelayTime] = useState([]);
+  const [delayTime, setDelayTime] = useState(0);
   const questIndex = props.index;
   const progressIndex = id;
   const progressBtns = document.getElementsByName(questIndex);
@@ -47,7 +47,7 @@ export default function ProgressBtns(props) {
             obj.index === questIndex &&
               obj.progress.forEach((e) => {
                 isMounted &&
-                  setDelayTime([parseInt(totalDelayTime - currentTime)]);
+                  setDelayTime(parseInt(totalDelayTime - currentTime));
                 const idx = parseInt(e.id);
                 progressBtns[idx].checked = true;
                 progressBtns[idx].disabled = true;
@@ -76,8 +76,7 @@ export default function ProgressBtns(props) {
   ]);
 
   const removeDisable = async (event) => {
-    let resetTime = [];
-    setDelayTime(resetTime);
+    setDelayTime(0);
 
     let countDownTime = parseInt(currentTime + 86400000);
     if (event.target.id === `${id}` && id < progressBtns.length - 1) {
@@ -128,11 +127,13 @@ export default function ProgressBtns(props) {
           disabled
         />
         {id === 1 &&
-          (delayTime.length > 0 ? (
+          (delayTime > 0 ? (
             <Timer
-              duration={delayTime[0]}
+              duration={delayTime}
               displayOption={props.progressBtnvisible}
             />
+          ) : delayTime < 0 ? (
+            <Timer duration={0} displayOption={props.progressBtnvisible} />
           ) : (
             <Timer
               duration={86400000}
@@ -153,11 +154,13 @@ export default function ProgressBtns(props) {
           disabled
         />
         {id === 2 &&
-          (delayTime.length > 0 ? (
+          (delayTime > 0 ? (
             <Timer
-              duration={delayTime[0]}
+              duration={delayTime}
               displayOption={props.progressBtnvisible}
             />
+          ) : delayTime < 0 ? (
+            <Timer duration={0} displayOption={props.progressBtnvisible} />
           ) : (
             <Timer
               duration={86400000}
@@ -178,11 +181,13 @@ export default function ProgressBtns(props) {
           disabled
         />
         {id === 3 &&
-          (delayTime.length > 0 ? (
+          (delayTime > 0 ? (
             <Timer
-              duration={delayTime[0]}
+              duration={delayTime}
               displayOption={props.progressBtnvisible}
             />
+          ) : delayTime < 0 ? (
+            <Timer duration={0} displayOption={props.progressBtnvisible} />
           ) : (
             <Timer
               duration={86400000}
@@ -203,11 +208,13 @@ export default function ProgressBtns(props) {
           disabled
         />
         {id === 4 &&
-          (delayTime.length > 0 ? (
+          (delayTime > 0 ? (
             <Timer
-              duration={delayTime[0]}
+              duration={delayTime}
               displayOption={props.progressBtnvisible}
             />
+          ) : delayTime < 0 ? (
+            <Timer duration={0} displayOption={props.progressBtnvisible} />
           ) : (
             <Timer
               duration={86400000}
