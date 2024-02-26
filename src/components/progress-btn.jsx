@@ -1,8 +1,8 @@
 import React, {
   useState,
-  useRef,
+  // useRef,
   useMemo,
-  useLayoutEffect,
+  useEffect,
   useCallback,
 } from "react";
 import { axiosPrivate } from "../api/axios";
@@ -13,7 +13,7 @@ import useAuth from "../hooks/useAuth";
 export default function ProgressBtns(props) {
   const { setQuestAccord } = useAuth();
   const { questState } = useQuestState();
-  const effectRun = useRef(false);
+  // const effectRun = useRef(false);
   const [id, setId] = useState(0);
   const [delayTime, setDelayTime] = useState(0);
   const questIndex = props.index;
@@ -32,7 +32,7 @@ export default function ProgressBtns(props) {
     [progressBtns, currentTime]
   );
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let isMounted = true;
 
     const callRef = () => {
@@ -57,13 +57,13 @@ export default function ProgressBtns(props) {
           });
     };
 
-    if (effectRun.current) {
-      callRef();
-    }
-
+    // if (effectRun.current) {
+    //   callRef();
+    // }
+    callRef();
     return () => {
       isMounted = false;
-      effectRun.current = true;
+      // effectRun.current = true;
     };
   }, [
     currentTime,
