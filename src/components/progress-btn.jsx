@@ -1,6 +1,5 @@
 import React, {
   useState,
-  // useRef,
   useMemo,
   useEffect,
   useCallback,
@@ -13,7 +12,6 @@ import useAuth from "../hooks/useAuth";
 export default function ProgressBtns(props) {
   const { setQuestAccord } = useAuth();
   const { questState } = useQuestState();
-  // const effectRun = useRef(false);
   const [id, setId] = useState(0);
   const [delayTime, setDelayTime] = useState(0);
   const questIndex = props.index;
@@ -56,14 +54,9 @@ export default function ProgressBtns(props) {
               });
           });
     };
-
-    // if (effectRun.current) {
-    //   callRef();
-    // }
     callRef();
     return () => {
       isMounted = false;
-      // effectRun.current = true;
     };
   }, [
     currentTime,
@@ -110,7 +103,6 @@ export default function ProgressBtns(props) {
           type="checkbox"
           id="0"
           style={{ display: props.progressBtnvisible }}
-          // value={progressIndex}
           onChange={removeDisable}
         />
       </div>
@@ -122,7 +114,6 @@ export default function ProgressBtns(props) {
           type="checkbox"
           id="1"
           style={{ display: props.progressBtnvisible }}
-          // value={progressIndex}
           onChange={removeDisable}
           disabled
         />
@@ -149,7 +140,6 @@ export default function ProgressBtns(props) {
           type="checkbox"
           id="2"
           style={{ display: props.progressBtnvisible }}
-          // value={progressIndex}
           onChange={removeDisable}
           disabled
         />
@@ -176,7 +166,6 @@ export default function ProgressBtns(props) {
           type="checkbox"
           id="3"
           style={{ display: props.progressBtnvisible }}
-          // value={progressIndex}
           onChange={removeDisable}
           disabled
         />
@@ -203,7 +192,6 @@ export default function ProgressBtns(props) {
           type="checkbox"
           id="4"
           style={{ display: props.progressBtnvisible }}
-          // value={progressIndex}
           onChange={removeDisable}
           disabled
         />
