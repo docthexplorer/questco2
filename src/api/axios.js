@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://questco2-api.onrender.com"
+const BASE_URL = "https://www.questco2-api.fullstack.name.ng"
 
 export default axios.create({
     baseURL: BASE_URL

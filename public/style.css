@@ -79,6 +79,10 @@ h6 {
   width: 40%;
 }
 
+.input-detail {
+  font-size: 1.5rem;
+}
+
 .input-detail:focus {
   box-shadow: 0.2rem 0.2rem 0.2rem var(--color6), 0 -0.2rem 0.2rem var(--color6);
   border-color: var(--color6);
@@ -104,26 +108,28 @@ h6 {
   margin-bottom: 1.2rem;
 }
 
-.persistLogin {
+.persist-login {
   font-size: 1.25rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
 }
-.persistLogin label {
+
+.persist-login * {
+  vertical-align: middle;
+}
+
+.persist-login label {
   color: var(--color1);
   margin: 0;
 }
 
-.persistCheck {
+.persist-check {
   accent-color: var(--color1);
   cursor: pointer;
   height: 1.2rem;
   width: 1.2rem;
-  margin: 0 1rem 0.5rem 0.5rem;
+  margin-right: 0.5rem;
 }
 
-.persistCheck:checked {
+.persist-check:checked {
   background-color: var(--color1);
 }
 
@@ -134,7 +140,6 @@ h6 {
 }
 
 .forget-password-info {
-  padding: 0.25rem;
   position: relative;
 }
 
@@ -176,6 +181,7 @@ h6 {
 }
 
 .button-text {
+  font-size: 1.5rem;
   font-weight: bold;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -502,7 +508,7 @@ hr {
   }
 
   .fontz {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   .button-text {
@@ -514,12 +520,12 @@ hr {
     margin-top: 2rem;
   }
 
-  .persistLogin {
+  .persist-login {
     font-size: 1.25rem;
     margin-bottom: 1.2rem;
   }
 
-  .persistCheck {
+  .persist-check {
     height: 1.2rem;
     width: 1.2rem;
     margin: 0 1rem 0.5rem 0.5rem;

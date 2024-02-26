@@ -20,9 +20,10 @@ function Input(props) {
       </span>
       <div className="d-flex input-container">
         <input
+          id={props.id}
           type={revealPassword ? "text" : props.type}
           placeholder={props.placeholder}
-          className="form-control input-detail fontz"
+          className="form-control input-detail"
           name={props.name}
           onChange={props.action}
           value={props.value}
@@ -33,7 +34,7 @@ function Input(props) {
         />
         {props.name === "password" && (
           <label
-            htmlFor={props.name}
+            htmlFor={props.id}
             onClick={togglePassword}
             className="password-reveal"
           >
@@ -92,7 +93,7 @@ function Submit(props) {
         onMouseOut={noHover}
         type={props.submit}
       >
-        <span className="button-text fontz">{props.text}</span>
+        <span className="button-text">{props.text}</span>
       </Button>
     </ThemeProvider>
   );

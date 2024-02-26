@@ -91,21 +91,21 @@ export default function Credentials({
         name="password"
         value={credentials.password}
       />
-      <div className="d-flex justify-content-center align-items-center persist-container gap-5">
-        <div className="persistLogin">
+      <div className="d-flex justify-content-between align-items-center persist-container">
+        <div className="persist-login">
           <CheckBox
-            classname="persistCheck"
+            classname="persist-check"
             type="checkbox"
             id="persist"
             onchange={togglePersist}
             checked={persist}
           />
-          <label htmlFor="persist">Keep me logged in</label>
+          <label htmlFor="persist">Remember me</label>
         </div>
         <div className="forget-password-container">
           <a className="forget-password" href="#">
             <span className="forget-password-info">
-              {forgetPasswordInfo && <p>This feature is not yet available.</p>}
+              {forgetPasswordInfo && <p>Feature not yet available.</p>}
               <i
                 className="fa-solid fa-circle-info"
                 onMouseOver={hover}
