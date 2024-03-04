@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Heading from "../components/project-title";
+import { Alert } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Credentials from "../components/credentials";
 import { Footer } from "../components/footer";
 import axios from "../api/axios";
@@ -199,12 +201,36 @@ function Authorize() {
     localStorage.setItem("persist", persist);
   }, [persist]);
 
+  const theme = createTheme({
+    palette: {
+      info: {
+        main: "#63474d",
+        light: "#fff"
+      },
+    },
+  });
+
   return (
     <>
       <div className="fluid-container">
         <Heading />
         <form className="auth d-flex flex-column" onSubmit={handleFormSubmit}>
           <h2 className="login-heading">Login to Carbon Quest App.</h2>
+          <ThemeProvider theme={theme}>
+          <span className="instance-info">
+            {" "}
+            <Alert severity="info">
+              <h6 className="instance-text">
+                Please be informed that there may be some delay or no server
+                response while attempting to login. This is because Carbon Quest
+                client app and API are deployed on free instance and therefore
+                spin down with inactivity, which can delay requests by 50
+                seconds or more. Kindly retry and have some patience while you
+                explore the app.
+              </h6>
+            </Alert>
+          </span>
+          </ThemeProvider>
           <Credentials
             action={action}
             credentials={credentials}

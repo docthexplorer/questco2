@@ -57,8 +57,16 @@ h6 {
   border-radius: 3rem;
   margin: auto;
   height: auto;
-  padding: 10rem 0;
+  padding: 2rem 0 10rem;
   width: 50rem;
+}
+
+.instance-info {
+  margin: 0 1rem 3rem;
+}
+
+.instance-text {
+  color: var(--color2);
 }
 
 .login-heading {
@@ -490,8 +498,12 @@ hr {
 
   .auth {
     border: none;
-    padding: 2rem 0;
+    padding: 0 0 2rem;
     width: 30rem;
+  }
+
+  .instance-info {
+    margin: 0 0 1.5rem;
   }
 
   .credential-mobile {
@@ -528,7 +540,6 @@ hr {
   .persist-check {
     height: 1.2rem;
     width: 1.2rem;
-    margin: 0 1rem 0.5rem 0.5rem;
   }
 
   .persist-container {
